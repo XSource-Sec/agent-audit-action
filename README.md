@@ -223,14 +223,14 @@ jobs:
 
 ### Pricing
 
-| Plan | Scans/Month | Scan Modes | Price |
-|------|-------------|------------|-------|
-| **Free** | 3 | Quick only | $0 |
-| **Starter** | 25 | Quick, Standard | $29/mo |
-| **Pro** | 100 | All modes | $99/mo |
-| **Enterprise** | Unlimited | All modes + SSO | Custom |
+| Plan | Scans/Month | Targets | Attack Vectors | Price |
+|------|-------------|---------|----------------|-------|
+| **Free** | 5 | 1 | 100+ | $0/forever |
+| **Pro** | 100 | 5 | 600+ | $149/mo |
+| **Team** | Unlimited | Unlimited | 650+ | $299/mo |
+| **Enterprise** | Unlimited | Unlimited | 650+ | Custom |
 
-[View Pricing →](https://xsourcesec.com/#pricing)
+[View Pricing →](https://app.xsourcesec.com/pricing)
 
 ---
 
