@@ -1,0 +1,56 @@
+name: 'AgentAudit Security Scan'
+description: 'Scan your AI agent endpoints for security vulnerabilities with AgentAudit'
+author: 'XSource Security'
+branding:
+  icon: 'shield'
+  color: 'purple'
+
+inputs:
+  target:
+    description: 'Target URL to scan (your AI endpoint)'
+    required: true
+  api_key:
+    description: 'AgentAudit API key (get one at app.xsourcesec.com)'
+    required: true
+  mode:
+    description: 'Scan mode: quick (fast, essential tests), standard (balanced), full (comprehensive)'
+    required: false
+    default: 'quick'
+  fail_on:
+    description: 'Fail the build if findings at this severity or higher are found. Options: critical, high, medium, low, none'
+    required: false
+    default: 'high'
+  timeout:
+    description: 'Scan timeout in seconds (30-1800)'
+    required: false
+    default: '300'
+
+outputs:
+  scan_id:
+    description: 'Unique identifier of the scan'
+  total_findings:
+    description: 'Total number of findings'
+  critical_count:
+    description: 'Number of critical severity findings'
+  high_count:
+    description: 'Number of high severity findings'
+  medium_count:
+    description: 'Number of medium severity findings'
+  low_count:
+    description: 'Number of low severity findings'
+  risk_score:
+    description: 'Overall risk score (0-100)'
+  report_url:
+    description: 'URL to the full scan report'
+  status:
+    description: 'Scan status (completed/failed)'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    TARGET: ${{ inputs.target }}
+    API_KEY: ${{ inputs.api_key }}
+    MODE: ${{ inputs.mode }}
+    FAIL_ON: ${{ inputs.fail_on }}
+    TIMEOUT: ${{ inputs.timeout }}
